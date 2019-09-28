@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+Copyright Antonios Thodos-Stelios Papakonstantinou
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Covert Greeklish V0.1</title>
+        <style>
+        div.container {
+            width: 100%;
+            border: 1px solid gray;
+        }
+
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color:   #003399;
+            clear: left;
+            text-align: center;
+        }
+
+        nav {
+            float: left;
+            max-width: 120px;
+            margin: 0;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul a {
+            text-decoration: none;
+        }
+
+        article {
+            margin-left: 170px;
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+        }
+        </style>
+    </head>
+    <body style="background-color:   #999999 ">
+        <div class="container">
+
+        <header>
+           <h1>Μετατροπή Πληκτρολόγησης σε Ελληνικά V0.1</h1>
+           <div>1. Επιλέξτε ενα αρχείο .txt <input type="file" id="fileInput">
+                </div>
+        </header>
+  
+    <nav>
+        <ul>
+            
+          <li>
+              <button onclick="myFunction()">2. Αντικατάσταση Χαρακτήρων</button>
+          </li>
+          
+          <li>
+              <button onClick="download()">3. Κατέβασμα σε .txt</button>
+          </li>
+          
+        </ul>
+    </nav>
+
+<article>
+  <h3>κείμενο απο .txt</h3>
+  <p><div style="white-space:PRE; background-color:sandybrown; border: 1px solid gray;" id="fileDisplayArea" ></div></p>
+  <h3>κείμενο με μετατροπή</h3>
+                
+  <p><div style="white-space:PRE; background-color: greenyellow; border: 1px solid gray;" id="result"></div></p>
+</article>
+
+<footer>Ελάχιστη ανάλυση οθόνης 1024x768. Η εφαρμογή χρειάζεται Javascript + HTML5 συμβατό Browser. Έχει δοκιμαστει επιτυχώς σε Chrome 61.0.3163.100</footer>
+
+</div>
+    
+        
+        
+        
+        
+
+
+
+<script >window.onload = function() {
+		var fileInput = document.getElementById('fileInput');
+		var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+		fileInput.addEventListener('change', function(e) {
+			var file = fileInput.files[0];
+			var textType = /text.*/;
+
+			if (file.type.match(textType)) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					fileDisplayArea.innerText = reader.result;
+				}
+
+				reader.readAsText(file);
+                                
+			} else {
+				fileDisplayArea.innerText = "Το αρχείο δέν ήταν (.txt) επαναλάβατε τήν ενέργεια!"
+			}
+		});
+}
+
+
+</script>
+<script>
+function myFunction() {
+    var original = document.getElementById('fileDisplayArea').innerHTML; 
+    var A = original.replace(/A/g, "Α");
+    document.getElementById('result').innerHTML = A;
+    var B = A.replace(/B/g, "Β");
+    document.getElementById('result').innerHTML = B;
+    var C = B.replace(/C/g, "Ψ");
+    document.getElementById('result').innerHTML = C;
+    var D = C.replace(/D/g, "Δ");
+    document.getElementById('result').innerHTML = D;
+    var E = D.replace(/E/g, "Ε");
+    document.getElementById('result').innerHTML = D;
+    var F = E.replace(/F/g, "Φ");
+    document.getElementById('result').innerHTML = E;
+    var G = F.replace(/G/g, "Γ");
+    document.getElementById('result').innerHTML = F;
+    var H = G.replace(/H/g, "Η");
+    document.getElementById('result').innerHTML = G;
+    var I = H.replace(/I/g, "Ι");
+    document.getElementById('result').innerHTML = H;   
+    var J = I.replace(/J/g, "Ξ");
+    document.getElementById('result').innerHTML = I;
+    var K = J.replace(/K/g, "Κ");
+    document.getElementById('result').innerHTML = J;
+    var L = K.replace(/L/g, "Λ");
+    document.getElementById('result').innerHTML = K;
+    var M = L.replace(/M/g, "Μ");
+    document.getElementById('result').innerHTML = L;
+    var N = M.replace(/N/g, "Ν");
+    document.getElementById('result').innerHTML = M;
+    var O = N.replace(/O/g, "Ο");
+    document.getElementById('result').innerHTML = N;
+    var P = O.replace(/P/g, "Π");
+    document.getElementById('result').innerHTML = O;
+    var Q = P.replace(/Q/g, ";");
+    document.getElementById('result').innerHTML = P;
+    var R = Q.replace(/R/g, "Ρ");
+    document.getElementById('result').innerHTML = Q;
+    var S = R.replace(/S/g, "Σ");
+    document.getElementById('result').innerHTML = R;
+    var T = S.replace(/T/g, "Τ");
+    document.getElementById('result').innerHTML = S;
+    var U = T.replace(/U/g, "Θ");
+    document.getElementById('result').innerHTML = T;
+    var V = U.replace(/V/g, "Ω");
+    document.getElementById('result').innerHTML = U;
+    var W = V.replace(/W/g, "Σ");
+    document.getElementById('result').innerHTML = V;
+    var X = W.replace(/X/g, "Χ");
+    document.getElementById('result').innerHTML = W;
+    var Y = X.replace(/Y/g, "Υ");
+    document.getElementById('result').innerHTML = X;
+    var Z = Y.replace(/Z/g, "Ζ");
+    
+    
+    
+}
+
+
+
+
+
+
+</script>
+
+<script>
+function download(){
+    var a = document.body.appendChild(
+        document.createElement("a")
+    );
+    a.download = "TRANSLATED.txt";
+    a.href = "data:text/html," + document.getElementById('result').innerHTML;
+    a.click();
+}
+</script>
+
+</body>
+</html>
+ 
